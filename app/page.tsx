@@ -1,42 +1,28 @@
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/posts';
-
-export default function HomePage() {
-  const posts = getAllPosts().slice(0, 9);
+export default function Home() {
   return (
-    <>
-      <section className="hero">
-        <p className="hero-eyebrow">Sauna Log</p>
-        <h1 className="hero-title">サウナを、もっと極める。</h1>
-        <p className="hero-sub">サウナ愛好家が教えるととのい方・おすすめ施設・グッズをお届けします。</p>
-        <Link href="/blog" style={{ display: 'inline-block', background: 'var(--pink)', color: '#fff', padding: '12px 28px', borderRadius: '50px', fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
-          記事をみる →
-        </Link>
-      </section>
-      <div className="container">
-        <section className="section">
-          <h2 className="section-title">最新記事</h2>
-          {posts.length === 0 ? (
-            <div className="empty">
-              <div className="empty-icon">📝</div>
-              <p>記事はまだありません。ダッシュボードから記事を生成してください。</p>
-            </div>
-          ) : (
-            <div className="post-grid">
-              {posts.map(post => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="post-card">
-                  <div className="post-card-body">
-                    <p className="post-card-genre">{post.genre}</p>
-                    <h3 className="post-card-title">{post.title}</h3>
-                    <p className="post-card-excerpt">{post.excerpt}</p>
-                    <p className="post-card-date">{post.date}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </section>
+    <main>
+      <header className="site-header">
+        <p className="eyebrow">🔥 K · BEAUTY PORTAL</p>
+        <h1 className="site-title">サウナLOG</h1>
+      </header>
+      <nav style={{display:'flex',borderBottom:'0.5px solid #E8DDD8',overflowX:'auto'}}>
+        <Link href="/" style={{flex:1,minWidth:80,padding:'10px 8px',textAlign:'center',fontFamily:"'DM Mono',monospace",fontSize:9,letterSpacing:'2px',color:'#2C2420',borderBottom:'1px solid #2C2420',whiteSpace:'nowrap'}}>RANKING</Link>
+        <Link href="/blog" style={{flex:1,minWidth:80,padding:'10px 8px',textAlign:'center',fontFamily:"'DM Mono',monospace",fontSize:9,letterSpacing:'2px',color:'#C4B5AD',borderBottom:'1px solid transparent',whiteSpace:'nowrap'}}>ARTICLES</Link>
+        <Link href="/privacy" style={{flex:1,minWidth:80,padding:'10px 8px',textAlign:'center',fontFamily:"'DM Mono',monospace",fontSize:9,letterSpacing:'2px',color:'#C4B5AD',borderBottom:'1px solid transparent',whiteSpace:'nowrap'}}>PRIVACY</Link>
+      </nav>
+      <div className="portal-banner">
+        <p className="portal-banner-label">FEATURED</p>
+        <p className="portal-banner-title">AIパーソナルカラー診断 × 韓国コスメランキング</p>
+        <a href="https://beauty-portal-jp.vercel.app" target="_blank" className="portal-banner-link">BEAUTY PORTAL →</a>
       </div>
-    </>
+      <section style={{padding:'0 24px'}}>
+        <p className="section-label">サウナ · TOP ARTICLES</p>
+      </section>
+      <footer className="site-footer">
+        <span>© 2026 AOKAE LLC</span>
+        <a href="https://beauty-portal-jp.vercel.app" target="_blank" className="footer-portal">BEAUTY PORTAL →</a>
+      </footer>
+    </main>
   );
 }
