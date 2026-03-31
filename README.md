@@ -1,2 +1,3 @@
 # sauna-log-jp
-サウナLOG
+
+Updated: 2026-04-01
