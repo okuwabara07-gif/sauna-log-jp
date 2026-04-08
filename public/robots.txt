@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sauna-log-jp.vercel.app/sitemap.xml
+Sitemap: https://okuwabara07-gif.github.io/sauna-log-jp/sitemap.xml
